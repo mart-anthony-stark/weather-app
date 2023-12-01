@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Roboto";
+  src: url(./fonts/Roboto/Roboto-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+body .container {
+  position: relative;
+  background: url(./images/mountain.webp) center/cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  filter: blur(4px);
+  z-index: 0;
+}
+body .phone {
+  position: relative;
+  z-index: 1;
+  height: 50em;
+  max-width: 30em;
+  width: 100%;
+  background: #312f60;
+  border-radius: 10px;
+}
+body .phone.day {
+  background: url(./images/day.jpg);
+}
+body .phone.night {
+  background: url(./images/night.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body .phone .taskbar {
+  padding: 2% 2%;
+  height: 2rem;
+  color: #fff;
+  background: #010314;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+}
+body .phone main {
+  color: #fdf0fa;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
+  height: calc(100% - 2rem);
+}
+body .phone main .top {
+  background: #fff;
+  margin: 1rem;
+  margin-top: 2rem;
+  border-radius: 10px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+body .phone main .top .temp {
+  display: flex;
+  justify-content: center;
+  flex-flow: row;
+  font-size: 2.8rem;
+  align-items: center;
+  gap: 0.8rem;
+}
+body .phone main .top .temp img {
+  height: 5rem;
+}
+body .phone main .top .temp .units {
+  display: flex;
+  justify-content: center;
+  flex-flow: row;
+  gap: 5px;
+}
+body .phone main .top .temp .units .divider {
+  width: 1.5px;
+  height: 25px;
+  background: #fdf0fa;
+}
+body .phone main .top .temp .units button {
+  background: none;
+  border: none;
+  color: rgb(177, 174, 174);
+  cursor: pointer;
+  outline: none;
+}
+body .phone main .top .temp .units button.active {
+  color: #fdf0fa;
+}
+body .phone main .top .temp .details {
+  font-size: 0.8rem;
+  color: rgb(177, 174, 174);
+}
+body .phone main .top .desc {
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
