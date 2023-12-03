@@ -30,6 +30,7 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    max-height: 50em;
     height: calc(100vh - 20px);
     max-width: 30em;
     width: 100%;
@@ -73,6 +74,7 @@ body {
 
         .temp {
           @include flex;
+          flex-wrap: wrap;
           font-size: 2.8rem;
           align-items: center;
           gap: 0.8rem;
