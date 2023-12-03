@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
       <div class="phone night">
+        <div class="rain front-row"></div>
+        <div class="rain back-row"></div>
+
         <div class="taskbar">
           <img src="./images/icons/wifi.svg" alt="" class="wifi" />
           <div class="time">10:30 PM</div>
@@ -23,7 +26,7 @@
                 alt=""
                 class="cloud"
               />
-              <h1 class="actual-temp">26</h1>
+              <h1 class="actual-temp">24</h1>
               <div class="units">
                 <button class="active">°C</button>
                 <div class="divider"></div>
@@ -36,10 +39,12 @@
               </div>
             </div>
 
-            <h2 class="desc">Cloudy</h2>
+            <h2 class="desc">Rainy</h2>
           </div>
         </main>
       </div>
     </div>
+
+    <script src="./scripts/index.js"></script>
   </body>
 </html>

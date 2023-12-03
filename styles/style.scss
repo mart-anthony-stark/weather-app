@@ -1,5 +1,6 @@
 @import "mixins";
 @import "fonts";
+@import "rain";
 
 $c-primary: #373252;
 $c-secondary: #836273;
@@ -25,7 +26,7 @@ body {
     sans-serif;
   .container {
     position: relative;
-    background: url(./images/mountain.webp) center/cover no-repeat;
+    background: url(../images/mountain.webp) center/cover no-repeat;
     min-height: 100vh;
     @include center;
 
@@ -44,18 +45,19 @@ body {
 
   .phone {
     position: relative;
+    overflow: hidden;
     z-index: 1;
-    height: 50em;
+    height: calc(100vh - 20px);
     max-width: 30em;
     width: 100%;
     background: $c-accent;
     border-radius: 10px;
 
     &.day {
-      background: url(./images/day.jpg);
+      background: url(../images/day.jpg);
     }
     &.night {
-      background: url(./images/night.jpg);
+      background: url(../images/night.jpg);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
