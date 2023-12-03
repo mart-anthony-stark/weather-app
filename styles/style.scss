@@ -1,29 +1,12 @@
+@import "globals";
 @import "mixins";
 @import "fonts";
 @import "rain";
 
-$c-primary: #373252;
-$c-secondary: #836273;
-$c-accent: #312f60;
-$c-accent-dark: #010314;
-$c-text: #fdf0fa;
-$c-inactive-text: rgb(177, 174, 174);
-$gradient: linear-gradient(
-  14deg,
-  rgba(2, 0, 36, 1) 0%,
-  rgba(123, 90, 108, 1) 52%,
-  rgba(55, 50, 82, 1) 100%
-);
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: Roboto, "Franklin Gothic Medium", "Arial Narrow", Arial,
     sans-serif;
+
   .container {
     position: relative;
     background: url(../images/mountain.webp) center/cover no-repeat;
@@ -53,17 +36,9 @@ body {
     background: $c-accent;
     border-radius: 10px;
 
-    &.day {
-      background: url(../images/day.jpg);
-    }
-    &.night {
-      background: url(../images/night.jpg);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
     .taskbar {
+      position: relative;
+      z-index: 5;
       padding: 2% 2%;
       height: 2rem;
       color: #fff;
@@ -72,10 +47,21 @@ body {
       @include flex(space-between);
     }
 
-    main {
+    .weather-app {
       color: $c-text;
       @include flex(space-between, column);
       height: calc(100% - 2rem);
+      position: relative;
+
+      &.day {
+        background: url(../images/day.jpg);
+      }
+      &.night {
+        background: url(../images/night.jpg);
+        background-size: cover;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+      }
 
       .top {
         background: #fff;

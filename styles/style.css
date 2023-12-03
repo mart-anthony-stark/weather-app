@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: "Roboto";
   src: url(./fonts/Roboto/Roboto-Regular.ttf);
@@ -7,7 +13,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 0;
 }
 
 .rain.back-row {
@@ -96,12 +102,6 @@
   display: block;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: Roboto, "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -134,16 +134,9 @@ body .phone {
   background: #312f60;
   border-radius: 10px;
 }
-body .phone.day {
-  background: url(../images/day.jpg);
-}
-body .phone.night {
-  background: url(../images/night.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 body .phone .taskbar {
+  position: relative;
+  z-index: 5;
   padding: 2% 2%;
   height: 2rem;
   color: #fff;
@@ -153,14 +146,24 @@ body .phone .taskbar {
   justify-content: space-between;
   flex-flow: row;
 }
-body .phone main {
+body .phone .weather-app {
   color: #fdf0fa;
   display: flex;
   justify-content: space-between;
   flex-flow: column;
   height: calc(100% - 2rem);
+  position: relative;
 }
-body .phone main .top {
+body .phone .weather-app.day {
+  background: url(../images/day.jpg);
+}
+body .phone .weather-app.night {
+  background: url(../images/night.jpg);
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+body .phone .weather-app .top {
   background: #fff;
   margin: 1rem;
   margin-top: 2rem;
@@ -173,7 +176,7 @@ body .phone main .top {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
-body .phone main .top .temp {
+body .phone .weather-app .top .temp {
   display: flex;
   justify-content: center;
   flex-flow: row;
@@ -181,34 +184,34 @@ body .phone main .top .temp {
   align-items: center;
   gap: 0.8rem;
 }
-body .phone main .top .temp img {
+body .phone .weather-app .top .temp img {
   height: 5rem;
 }
-body .phone main .top .temp .units {
+body .phone .weather-app .top .temp .units {
   display: flex;
   justify-content: center;
   flex-flow: row;
   gap: 5px;
 }
-body .phone main .top .temp .units .divider {
+body .phone .weather-app .top .temp .units .divider {
   width: 1.5px;
   height: 25px;
   background: #fdf0fa;
 }
-body .phone main .top .temp .units button {
+body .phone .weather-app .top .temp .units button {
   background: none;
   border: none;
   color: rgb(177, 174, 174);
   cursor: pointer;
   outline: none;
 }
-body .phone main .top .temp .units button.active {
+body .phone .weather-app .top .temp .units button.active {
   color: #fdf0fa;
 }
-body .phone main .top .temp .details {
+body .phone .weather-app .top .temp .details {
   font-size: 0.8rem;
   color: rgb(177, 174, 174);
 }
-body .phone main .top .desc {
+body .phone .weather-app .top .desc {
   text-align: center;
 }/*# sourceMappingURL=style.css.map */
