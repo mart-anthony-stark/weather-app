@@ -1,0 +1,78 @@
+.loading {
+  background: #efefef;
+  height: 100%;
+  transition: 1s ease;
+}
+
+.preloader {
+  position: absolute;
+  margin-left: -55px;
+  margin-top: -100px;
+  height: 110px;
+  width: 110px;
+  left: 50%;
+  top: 50%;
+}
+
+svg {
+  width: 110px;
+  height: 110px;
+}
+
+path {
+  stroke: #9ea1a4;
+  stroke-width: 0.25;
+  fill: #241E20;
+}
+
+#cloud {
+  position: relative;
+  z-index: 2;
+}
+
+#cloud path {
+  fill: #efefef;
+}
+
+#sun {
+  margin-left: -10px;
+  margin-top: 6px;
+  opacity: 0;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 45px;
+  top: 15px;
+  z-index: 1;
+  animation-name: rotate;
+  animation-duration: 16000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#sun path {
+  stroke-width: 0.18;
+  fill: #9ea1a4;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.text {
+  font-family: Helvetica, "Helvetica Neue", sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-left: -43px;
+  font-weight: bold;
+  margin-top: 0;
+  font-size: 1rem;
+  color: #a0a0a0;
+  width: 200px;
+}
+
+/*# sourceMappingURL=loading.css.map */

@@ -30,3 +30,22 @@ const makeItRain = () => {
 };
 
 makeItRain();
+
+const loading = document.querySelector(".loading");
+const weather = document.querySelector(".weather-app");
+let loadingTimeout = setTimeout(() => {
+  loading?.classList.add("closed");
+  loading.computedStyleMap.display = "none";
+
+  weather?.classList.remove("closed");
+
+  makeItRain();
+}, 1500);
+
+const actualWeather = document.querySelector(
+  "body > div > div > main > div.top"
+);
+setTimeout(() => {
+  console.log(actualWeather.computedStyleMap);
+  actualWeather.style.setProperty("opacity", "1");
+}, 2300);

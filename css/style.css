@@ -4,9 +4,14 @@
   box-sizing: border-box;
 }
 
+.closed {
+  transform: scale(0);
+  display: none;
+}
+
 @font-face {
   font-family: "Roboto";
-  src: url(./fonts/Roboto/Roboto-Regular.ttf);
+  src: url(../fonts/Roboto/Roboto-Regular.ttf);
 }
 .rain {
   position: absolute;
@@ -101,6 +106,83 @@
   display: block;
 }
 
+.loading {
+  background: #efefef;
+  height: 100%;
+  transition: 1s ease;
+}
+
+.preloader {
+  position: absolute;
+  margin-left: -55px;
+  margin-top: -100px;
+  height: 110px;
+  width: 110px;
+  left: 50%;
+  top: 50%;
+}
+
+svg {
+  width: 110px;
+  height: 110px;
+}
+
+path {
+  stroke: #9ea1a4;
+  stroke-width: 0.25;
+  fill: #241E20;
+}
+
+#cloud {
+  position: relative;
+  z-index: 2;
+}
+
+#cloud path {
+  fill: #efefef;
+}
+
+#sun {
+  margin-left: -10px;
+  margin-top: 6px;
+  opacity: 0;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 45px;
+  top: 15px;
+  z-index: 1;
+  animation-name: rotate;
+  animation-duration: 16000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#sun path {
+  stroke-width: 0.18;
+  fill: #9ea1a4;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.text {
+  font-family: Helvetica, "Helvetica Neue", sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-left: -43px;
+  font-weight: bold;
+  margin-top: 0;
+  font-size: 1rem;
+  color: #a0a0a0;
+  width: 200px;
+}
+
 body {
   font-family: Roboto, "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -131,7 +213,7 @@ body .phone {
   height: calc(100vh - 20px);
   max-width: 30em;
   width: 100%;
-  background: #312f60;
+  background: #efefef;
   border-radius: 10px;
 }
 body .phone .taskbar {
@@ -147,6 +229,8 @@ body .phone .taskbar {
   flex-flow: row;
 }
 body .phone .weather-app {
+  transition: 0.8s ease;
+  opacity: 1;
   color: #fdf0fa;
   display: flex;
   justify-content: space-between;
@@ -164,6 +248,8 @@ body .phone .weather-app.night {
   background-repeat: no-repeat;
 }
 body .phone .weather-app .top {
+  opacity: 0;
+  transition: 1s ease;
   background: #fff;
   margin: 1rem;
   margin-top: 2rem;
