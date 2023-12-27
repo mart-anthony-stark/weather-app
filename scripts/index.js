@@ -1,5 +1,4 @@
 const makeItRain = () => {
-  // clear out everything
   document.querySelectorAll(".rain").forEach((element) => {
     element.innerHTML = "";
   });
@@ -9,14 +8,9 @@ const makeItRain = () => {
   let backDrops = "";
 
   while (increment < 100) {
-    // couple random numbers to use for various randomizations
-    // random number between 98 and 1
     const randoHundo = Math.floor(Math.random() * (98 - 1 + 1) + 1);
-    // random number between 5 and 2
     const randoFiver = Math.floor(Math.random() * (5 - 2 + 1) + 2);
-    // increment
     increment += randoFiver;
-    // add in a new raindrop with various randomizations to certain CSS properties
     drops += `<div class="drop" style="left: ${increment}%; bottom: ${
       randoFiver + randoFiver - 1 + 100
     }%; animation-delay: 0.${randoHundo}s; animation-duration: 0.5${randoHundo}s;"><div class="stem" style="animation-delay: 0.${randoHundo}s; animation-duration: 0.5${randoHundo}s;"></div><div class="splat" style="animation-delay: 0.${randoHundo}s; animation-duration: 0.5${randoHundo}s;"></div></div>`;
@@ -31,6 +25,7 @@ const makeItRain = () => {
 
 makeItRain();
 
+// Loading transition
 const loading = document.querySelector(".loading");
 const weather = document.querySelector(".weather-app");
 let loadingTimeout = setTimeout(() => {
@@ -40,12 +35,39 @@ let loadingTimeout = setTimeout(() => {
   weather?.classList.remove("closed");
 
   makeItRain();
-}, 1500);
+}, 2000);
 
+// Animations
 const actualWeather = document.querySelector(
   "body > div > div > main > div.top"
 );
+const bottomDetails = document.querySelector(
+  "body > div > div > main > div.bottom"
+);
 setTimeout(() => {
-  console.log(actualWeather.computedStyleMap);
   actualWeather.style.setProperty("opacity", "1");
-}, 2300);
+}, 3000);
+
+setTimeout(() => {
+  bottomDetails.style.setProperty("opacity", "1");
+}, 3000);
+
+// Animate cloud
+const animateCloud = () => {
+  let cloud = document.querySelector(".animated-cloud");
+  let e = document.createElement("div");
+  let left = Math.floor(Math.random() * 310);
+
+  e.classList.add("drop");
+  cloud.appendChild(e);
+
+  e.style.left = left + "px";
+
+  setTimeout(() => {
+    cloud.removeChild(e);
+  }, 2000);
+};
+
+setInterval(() => {
+  animateCloud();
+}, 20);

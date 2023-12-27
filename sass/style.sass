@@ -3,6 +3,7 @@
 @import "fonts"
 @import "rain"
 @import "loading"
+@import 'cloud'
 
 body
   font-family: Roboto, "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif
@@ -46,7 +47,7 @@ body
       @include flex(space-between)
 
     .weather-app
-      transition: .8s ease
+      transition: 1s ease-in-out
       opacity: 1
       color: $c-text
       @include flex(space-between, column)
@@ -66,7 +67,7 @@ body
         opacity: 0
         transition: 1s ease
         background: #fff
-        margin: 1rem
+        margin: .5rem
         margin-top: 2rem
         border-radius: 10px
         padding: 1rem
@@ -107,3 +108,27 @@ body
 
         .desc
           text-align: center
+      .bottom
+        opacity: 0
+        transition: 1s ease
+        position: absolute
+        bottom: 3rem
+        height: 150px
+        width: 98%
+        left: 50%
+        transform: translateX(-50%)
+        @include flex(space-between)
+        @include glassmorph
+
+        .card
+          width: 100px
+          @include flex(center, column)
+          align-items: center
+          gap: 10px
+          padding: 1rem
+
+          &.active
+            @include glassmorph
+
+          .inactive
+            color: $c-inactive-text

@@ -183,6 +183,74 @@ path {
   width: 200px;
 }
 
+.cloud-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animated-cloud {
+  position: relative;
+  width: 320px;
+  height: 100px;
+  background: #fff;
+  border-radius: 100px;
+  filter: drop-shadow(8px 8px 0 rgba(0, 0, 0, 0.3333333333));
+  animation: animateCloud 2s steps(1) infinite;
+}
+.animated-cloud::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 40px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 90px -10px 0 30px #fff;
+}
+.animated-cloud::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  background: #fff;
+}
+.animated-cloud .drop {
+  position: absolute;
+  top: 23px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 2px;
+  height: 10px;
+  transform-origin: bottom;
+  animation: animateDrop 2s linear infinite;
+}
+
+@keyframes animateCloud {
+  0% {
+    filter: drop-shadow(8px 8px 0 rgba(0, 0, 0, 0.0666666667)) drop-shadow(0 0 0 #fff) brightness(1);
+  }
+  95% {
+    filter: drop-shadow(8px 8px 0 rgba(0, 0, 0, 0.0666666667)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.5960784314)) brightness(10);
+  }
+}
+@keyframes animateDrop {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  70% {
+    transform: translateY(360px) scaleY(1);
+  }
+  80% {
+    transform: translateY(360px) scaleY(0.2);
+  }
+  100% {
+    transform: translateY(360px) scaleY(0.2) scaleX(15);
+  }
+}
 body {
   font-family: Roboto, "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -229,7 +297,7 @@ body .phone .taskbar {
   flex-flow: row;
 }
 body .phone .weather-app {
-  transition: 0.8s ease;
+  transition: 1s ease-in-out;
   opacity: 1;
   color: #fdf0fa;
   display: flex;
@@ -251,7 +319,7 @@ body .phone .weather-app .top {
   opacity: 0;
   transition: 1s ease;
   background: #fff;
-  margin: 1rem;
+  margin: 0.5rem;
   margin-top: 2rem;
   border-radius: 10px;
   padding: 1rem;
@@ -301,6 +369,45 @@ body .phone .weather-app .top .temp .details {
 }
 body .phone .weather-app .top .desc {
   text-align: center;
+}
+body .phone .weather-app .bottom {
+  opacity: 0;
+  transition: 1s ease;
+  position: absolute;
+  bottom: 3rem;
+  height: 150px;
+  width: 98%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+body .phone .weather-app .bottom .card {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+}
+body .phone .weather-app .bottom .card.active {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+body .phone .weather-app .bottom .card .inactive {
+  color: rgb(177, 174, 174);
 }
 
 /*# sourceMappingURL=style.css.map */
